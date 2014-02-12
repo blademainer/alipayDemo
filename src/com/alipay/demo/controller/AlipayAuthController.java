@@ -5,9 +5,11 @@
 package com.alipay.demo.controller;
 
 import java.util.Date;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,6 +45,12 @@ import com.alipay.demo.tools.URLTool;
  */
 @Controller
 public class AlipayAuthController {
+
+    /**  */
+    private static final String CNO = "cno";
+
+    /**  */
+    private static final String CNAME = "cname";
 
     /**
      * 日志管理
@@ -97,6 +105,16 @@ public class AlipayAuthController {
     public ModelAndView doAuthCommit(HttpServletRequest httpServletRequest) {
 
         LoggerUtil.info(logger, OPERATION_NAME + ",用户确认提交绑定表单。");
+        
+        
+        //检查参数
+        if(StringUtils.isBlank(httpServletRequest.getParameter(CNAME)) ||StringUtils.isBlank(httpServletRequest.getParameter(CNO)) ){
+           
+            ModelAndView  errorView=new ModelAndView();
+            errorView.addObject("errorMsg", "输入框不能为空!");
+            errorView.setViewName("applyAuth");
+            return errorView;
+        }
 
         // 1.构建请求
         ToAlipayAddAccountModelRequest modelRequest = buildModelRequest(httpServletRequest);
@@ -190,13 +208,15 @@ public class AlipayAuthController {
     private ToAlipayAddAccountModelRequest buildModelRequest(HttpServletRequest httpServletRequest) {
 
         ToAlipayAddAccountModelRequest modelRequest = new ToAlipayAddAccountModelRequest();
+        
+        
 
         //TODO 添加实际用户信息，from db,file or anywhere
         AlipayAddAccountInfo accountInfo = new AlipayAddAccountInfo();
         accountInfo.setAppId(SystemConfig.getPublicId());
-        accountInfo.setBindAccountNo("1111");
-        accountInfo.setDisplayName("20141010");
-        accountInfo.setRealName("少卿");
+        accountInfo.setBindAccountNo(UUID.randomUUID().toString());
+        accountInfo.setDisplayName(httpServletRequest.getParameter(CNO));
+        accountInfo.setRealName(httpServletRequest.getParameter(CNAME));
         accountInfo.setFromUserId(httpServletRequest.getParameter("userId"));
 
         modelRequest.setAlipayAddAccountInfo(accountInfo);
@@ -204,4 +224,7 @@ public class AlipayAuthController {
         return modelRequest;
 
     }
+    
+    
+   
 }

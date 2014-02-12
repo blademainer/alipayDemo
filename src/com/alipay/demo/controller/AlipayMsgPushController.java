@@ -49,11 +49,17 @@ public class AlipayMsgPushController {
      * 
      * @param httpServletRequest
      */
-    @RequestMapping(method = RequestMethod.GET, value = "msginput.do")
-    public void handlerInput(HttpServletRequest httpServletRequest) {
-
+    @RequestMapping(method = RequestMethod.GET, value = "single.do")
+    public String handlerInput(HttpServletRequest httpServletRequest) {
+        
+        
+      
+        
+        return "msginput";
     }
-
+    
+    
+ 
     /**
      * 提交发送消息
      * 
@@ -61,16 +67,20 @@ public class AlipayMsgPushController {
      */
     @RequestMapping(method = RequestMethod.POST, value = "push.do")
     public ModelAndView handlerPush(HttpServletRequest httpServletRequest) {
+        
+        String userId = httpServletRequest.getParameter("userId");
 
         //TODO 构建一个消息
         AlipayArticleMsg alipayArticleMsg = new AlipayArticleMsg();
         alipayArticleMsg.setAppId(SystemConfig.getPublicId());
         alipayArticleMsg.setCreateTime(new Date());
         alipayArticleMsg.setMsgType(MsgConstants.IMGTXT_MSG_TYPE);
+        alipayArticleMsg.setToUserId(userId);
 
         AlipayArticleItem item = new AlipayArticleItem();
         item.setTitle("测试消息推送");
         item.setUrl(URLTool.builderURL(SystemConfig.getHostUrl() + "/msgDetail.do", null));
+        
         alipayArticleMsg.addItem(item);
 
         // 1.构建请求

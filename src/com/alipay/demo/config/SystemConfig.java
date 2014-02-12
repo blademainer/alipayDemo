@@ -29,6 +29,9 @@ import com.google.common.cache.LoadingCache;
  */
 public class SystemConfig {
 
+    /**  */
+    private static final String HOST_URL = "HOST_URL";
+
     /**
      * 操作名称
      */
@@ -188,7 +191,7 @@ public class SystemConfig {
     /**
      * APP名称
      */
-    private static final String APP_NAME            = "alipayDemo";
+    private static final String APP_NAME            = "APP_NAME";
 
     /**
      * 支付宝字符集
@@ -216,7 +219,7 @@ public class SystemConfig {
      */
     public static String getHostUrl() {
 
-        return getSystemConfigInstance().getConfigValue("HOST_URL") + "/" + APP_NAME;
+        return getSystemConfigInstance().getConfigValue(HOST_URL) + "/" + getSystemConfigInstance().getConfigValue(APP_NAME);
     }
 
     /** 

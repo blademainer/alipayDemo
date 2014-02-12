@@ -12,11 +12,12 @@
    
      外部户绑定表单页面
      
+     <h1><c:out value="${errorMsg}"></c:out></h1>
      <form action="commitAuth.do" enctype="application/x-www-form-urlencoded" method="post">
-         <p>姓名: <label><c:out value="${userName}"/></label></p>
+         <p>姓名: <label><c:out value="${userName}"></c:out></label></p>
  		 <p>支付宝账号: <label><c:out value="${loginId}"/></label></p>
-   		 <p>卡号: <input type="text" name="cardno" /></p>
- 		 <p>密码: <input type="text" name="password" /></p>
+   		 <p>会员名: <input type="text" name="cname" /></p>
+ 		 <p>会员卡号: <input type="text" name="cno" /></p>
  		 <p><input type="hidden" name="userId"  value="${userId}" /></p>
  		 <input type="submit" value="Submit" />
      </form>
