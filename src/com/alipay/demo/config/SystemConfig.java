@@ -30,7 +30,7 @@ import com.google.common.cache.LoadingCache;
 public class SystemConfig {
 
     /**  */
-    private static final String HOST_URL = "HOST_URL";
+    private static final String          HOST_URL       = "HOST_URL";
 
     /**
      * ²Ù×÷Ãû³Æ
@@ -100,7 +100,8 @@ public class SystemConfig {
     private void loadCacheInstance() {
 
         configMap.put(AlipayEnviromentType.SANDBOX.getCode(), new SandboxConfig());
-        configMap.put(AlipayEnviromentType.ONLINE.getCode(), new OnlineConfig());
+        configMap.put(AlipayEnviromentType.ONLINE.getCode(), new OnlineConfigNoCommit());
+        configMap.put(AlipayEnviromentType.TEST.getCode(), new TestEnvConfig());
 
     }
 
@@ -219,7 +220,8 @@ public class SystemConfig {
      */
     public static String getHostUrl() {
 
-        return getSystemConfigInstance().getConfigValue(HOST_URL) + "/" + getSystemConfigInstance().getConfigValue(APP_NAME);
+        return getSystemConfigInstance().getConfigValue(HOST_URL) + "/"
+               + getSystemConfigInstance().getConfigValue(APP_NAME);
     }
 
     /** 

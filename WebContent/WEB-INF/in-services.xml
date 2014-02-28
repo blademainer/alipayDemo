@@ -32,6 +32,7 @@
 		       <ref local="inAlipayFollowExecutor"/>
 		       <ref local="inAlipayUnFollowExecutor"/>
 		       <ref local="inAlipayMenuMsgExecutor"/>
+		       <ref local="inAlipayMenuOpenMsgExecutor" />
 		   </list>
 		 </property>
 		</bean>
@@ -54,6 +55,8 @@
 		
 		<!-- 支付宝->商户菜单点击服务 -->
 		<bean id="inAlipayMenuMsgExecutor" class="com.alipay.demo.process.in.InAlipayMenuMsgExecutor" />
-
+		
+		<!-- 支付宝->商户菜单点击-直接打开消息服务 -->
+		<bean id="inAlipayMenuOpenMsgExecutor" class="com.alipay.demo.process.in.InAlipayMenuOpenMsgExecutor" />
  
 </beans>

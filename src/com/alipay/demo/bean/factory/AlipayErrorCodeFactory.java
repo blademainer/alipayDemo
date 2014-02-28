@@ -42,7 +42,10 @@ public class AlipayErrorCodeFactory {
 
         // TODO Ìí¼Ó×ª»»Âß¼­
 
-        return ResultEnum.SYSTEM_ERROR;
+        ResultEnum systemError = ResultEnum.SYSTEM_ERROR;
+        systemError.setResultMsg(errorMsg);
+
+        return systemError;
 
     }
 

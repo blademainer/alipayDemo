@@ -5,7 +5,6 @@
 package com.alipay.demo.controller;
 
 import java.util.Date;
-import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,7 +25,7 @@ import com.alipay.demo.bean.in.AlipayInUserInfo;
 import com.alipay.demo.bean.msg.AlipayArticleItem;
 import com.alipay.demo.bean.msg.AlipayArticleMsg;
 import com.alipay.demo.bean.msg.MsgConstants;
-import com.alipay.demo.bean.to.AlipayAddAccountInfo;
+import com.alipay.demo.bean.to.AlipayThirdAccountInfo;
 import com.alipay.demo.bean.to.ToAlipayAddAccountModelReponse;
 import com.alipay.demo.bean.to.ToAlipayAddAccountModelRequest;
 import com.alipay.demo.bean.to.ToAlipayModelResponse;
@@ -47,10 +46,13 @@ import com.alipay.demo.tools.URLTool;
 public class AlipayAuthController {
 
     /**  */
-    private static final String CNO = "cno";
+    private static final String CNO            = "cno";
 
     /**  */
-    private static final String CNAME = "cname";
+    private static final String CNAME          = "cname";
+
+    /***/
+    private static final String CTHIRDID       = "cthirdid";
 
     /**
      * 日志管理
@@ -105,12 +107,13 @@ public class AlipayAuthController {
     public ModelAndView doAuthCommit(HttpServletRequest httpServletRequest) {
 
         LoggerUtil.info(logger, OPERATION_NAME + ",用户确认提交绑定表单。");
-        
-        
+
         //检查参数
-        if(StringUtils.isBlank(httpServletRequest.getParameter(CNAME)) ||StringUtils.isBlank(httpServletRequest.getParameter(CNO)) ){
-           
-            ModelAndView  errorView=new ModelAndView();
+        if (StringUtils.isBlank(httpServletRequest.getParameter(CNAME))
+            || StringUtils.isBlank(httpServletRequest.getParameter(CNO))
+            || StringUtils.isBlank(httpServletRequest.getParameter(CTHIRDID))) {
+
+            ModelAndView errorView = new ModelAndView();
             errorView.addObject("errorMsg", "输入框不能为空!");
             errorView.setViewName("applyAuth");
             return errorView;
@@ -176,6 +179,14 @@ public class AlipayAuthController {
         AlipayArticleItem item = new AlipayArticleItem();
         item.setTitle("添加账户成功");
         item.setUrl(URLTool.builderURL(SystemConfig.getHostUrl() + "/msgDetail.do", null));
+        item.setImageUrl("https://i.alipayobjects.com/e/201312/1bq4iTRsqz_src.jpg");
+
+        StringBuilder descBuilder = new StringBuilder(100);
+        descBuilder.append("会员名:");
+        descBuilder.append(httpServletRequest.getParameter(CNAME) + "\n");
+        descBuilder.append("卡号:");
+        descBuilder.append(httpServletRequest.getParameter(CNO));
+        item.setDesc(descBuilder.toString());
 
         alipayArticleMsg.addItem(item);
 
@@ -208,13 +219,11 @@ public class AlipayAuthController {
     private ToAlipayAddAccountModelRequest buildModelRequest(HttpServletRequest httpServletRequest) {
 
         ToAlipayAddAccountModelRequest modelRequest = new ToAlipayAddAccountModelRequest();
-        
-        
 
         //TODO 添加实际用户信息，from db,file or anywhere
-        AlipayAddAccountInfo accountInfo = new AlipayAddAccountInfo();
+        AlipayThirdAccountInfo accountInfo = new AlipayThirdAccountInfo();
         accountInfo.setAppId(SystemConfig.getPublicId());
-        accountInfo.setBindAccountNo(UUID.randomUUID().toString());
+        accountInfo.setBindAccountNo(httpServletRequest.getParameter(CTHIRDID));
         accountInfo.setDisplayName(httpServletRequest.getParameter(CNO));
         accountInfo.setRealName(httpServletRequest.getParameter(CNAME));
         accountInfo.setFromUserId(httpServletRequest.getParameter("userId"));
@@ -224,7 +233,5 @@ public class AlipayAuthController {
         return modelRequest;
 
     }
-    
-    
-   
+
 }

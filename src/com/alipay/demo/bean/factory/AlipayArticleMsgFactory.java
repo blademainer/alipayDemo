@@ -44,4 +44,15 @@ public class AlipayArticleMsgFactory {
         return advanceXStream.toXml(toAlipayArticleMsg);
     }
 
+    /**
+     * 消息体XML转换成对象
+     * 
+     * @param xml
+     * @return
+     */
+    public static AlipayArticleMsg fromXml(String xml) {
+
+        return (AlipayArticleMsg) advanceXStream.fromXml(xml);
+    }
+
 }

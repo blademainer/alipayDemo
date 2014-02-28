@@ -15,28 +15,28 @@ import com.alipay.demo.bean.AlipayAPINames;
 public class ToAlipayAddAccountModelRequest extends ToAlipayModelRequest {
 
     /** 序列号ID  */
-    private static final long    serialVersionUID = 2896885811439637621L;
+    private static final long      serialVersionUID = 2896885811439637621L;
     /**
-     * 添加外部户信息
+     * 外部户信息
      */
-    private AlipayAddAccountInfo alipayAddAccountInfo;
+    private AlipayThirdAccountInfo alipayThirdAccountInfo;
 
     /**
-     * Getter method for property <tt>alipayAddAccountInfo</tt>.
+     * Getter method for property <tt>alipayThirdAccountInfo</tt>.
      * 
-     * @return property value of alipayAddAccountInfo
+     * @return property value of alipayThirdAccountInfo
      */
-    public AlipayAddAccountInfo getAlipayAddAccountInfo() {
-        return alipayAddAccountInfo;
+    public AlipayThirdAccountInfo getAlipayAddAccountInfo() {
+        return alipayThirdAccountInfo;
     }
 
     /**
-     * Setter method for property <tt>alipayAddAccountInfo</tt>.
+     * Setter method for property <tt>alipayThirdAccountInfo</tt>.
      * 
-     * @param alipayAddAccountInfo value to be assigned to property alipayAddAccountInfo
+     * @param alipayThirdAccountInfo value to be assigned to property alipayThirdAccountInfo
      */
-    public void setAlipayAddAccountInfo(AlipayAddAccountInfo alipayAddAccountInfo) {
-        this.alipayAddAccountInfo = alipayAddAccountInfo;
+    public void setAlipayAddAccountInfo(AlipayThirdAccountInfo alipayThirdAccountInfo) {
+        this.alipayThirdAccountInfo = alipayThirdAccountInfo;
     }
 
     /** 

@@ -4,8 +4,6 @@
  */
 package com.alipay.demo.controller;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,15 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alipay.demo.bean.msg.AlipayArticleItem;
+import com.alipay.demo.bean.factory.AlipayArticleMsgFactory;
 import com.alipay.demo.bean.msg.AlipayArticleMsg;
-import com.alipay.demo.bean.msg.MsgConstants;
 import com.alipay.demo.bean.to.ToAlipayModelResponse;
 import com.alipay.demo.bean.to.ToAlipayMsgPushModelRequst;
 import com.alipay.demo.bean.to.ToProcessContext;
-import com.alipay.demo.config.SystemConfig;
 import com.alipay.demo.process.ServiceEngine;
-import com.alipay.demo.tools.URLTool;
 
 /**
  * 消息发送控制器
@@ -49,39 +44,24 @@ public class AlipayMsgPushController {
      * 
      * @param httpServletRequest
      */
-    @RequestMapping(method = RequestMethod.GET, value = "single.do")
+    @RequestMapping(method = RequestMethod.GET, value = "msginput.do")
     public String handlerInput(HttpServletRequest httpServletRequest) {
-        
-        
-      
-        
+
         return "msginput";
     }
-    
-    
- 
+
     /**
      * 提交发送消息
      * 
      * @param httpServletRequest
      */
-    @RequestMapping(method = RequestMethod.POST, value = "push.do")
+    @RequestMapping(method = RequestMethod.POST, value = "msginput.do")
     public ModelAndView handlerPush(HttpServletRequest httpServletRequest) {
-        
-        String userId = httpServletRequest.getParameter("userId");
 
-        //TODO 构建一个消息
-        AlipayArticleMsg alipayArticleMsg = new AlipayArticleMsg();
-        alipayArticleMsg.setAppId(SystemConfig.getPublicId());
-        alipayArticleMsg.setCreateTime(new Date());
-        alipayArticleMsg.setMsgType(MsgConstants.IMGTXT_MSG_TYPE);
-        alipayArticleMsg.setToUserId(userId);
+        String msgContent = httpServletRequest.getParameter("content");
 
-        AlipayArticleItem item = new AlipayArticleItem();
-        item.setTitle("测试消息推送");
-        item.setUrl(URLTool.builderURL(SystemConfig.getHostUrl() + "/msgDetail.do", null));
-        
-        alipayArticleMsg.addItem(item);
+        //根据填入xml转消息
+        AlipayArticleMsg alipayArticleMsg = AlipayArticleMsgFactory.fromXml(msgContent);
 
         // 1.构建请求
         ToAlipayMsgPushModelRequst toAlipayMsgPushModelRequst = ToAlipayMsgPushModelRequst
@@ -99,10 +79,14 @@ public class AlipayMsgPushController {
 
         ModelAndView modelAndView = new ModelAndView();
 
+        modelAndView.addObject("result", toAlipayModelResp.isSuccess());
+        modelAndView.addObject("msgContent", msgContent);
+
         if (toAlipayModelResp.isSuccess()) {
-            modelAndView.setViewName("msgPushSuccess");
+            modelAndView.setViewName("msginput");
+            modelAndView.addObject("sucessMsg", "消息发送成功!");
         } else {
-            modelAndView.setViewName("msgPushFail");
+            modelAndView.setViewName("msginput");
             modelAndView.addObject("errorMsg", toAlipayModelResp.getResultMsg());
             modelAndView.addObject("errorCode", toAlipayModelResp.getResultCode());
         }
@@ -110,4 +94,5 @@ public class AlipayMsgPushController {
         return modelAndView;
 
     }
+
 }

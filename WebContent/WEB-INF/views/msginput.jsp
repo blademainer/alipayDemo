@@ -5,40 +5,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
-<title>支付宝-单发消息发送页面</title>
+<title>支付宝-消息发送页面</title>
 </head>
 <body>
    
-     消息发送表单页面
+     <h1>消息发送表单页面</h1>
      
-     <form action="push.do" enctype="application/x-www-form-urlencoded" method="post">
- 		 <p>消息内容: <textarea cols="100" rows="15"  name="content"></textarea></p><p>  格式样例:<textarea cols="100" rows="15" name="example" readonly="readonly"><?xml version="1.0" encoding="utf-8"?>
-
-<Xml>
-  <MsgType><![CDATA[image-text]]></MsgType>
-  <ShowType><![CDATA[show_icon_left]]></ShowType>
-  <AppId><![CDATA[2013111400037744]]></AppId>
-  <ToUserId><![CDATA[2088102122560081]]></ToUserId>
-  <AgreementId><![CDATA[]]></AgreementId>
-  <Push><![CDATA[false]]></Push>
-  <CreateTime><![CDATA[1384272441626]]></CreateTime>
-  <ArticleCount>1</ArticleCount>
+    <c:choose>
+      <c:when test="${result}">
+      <font color="blue">
+         <c:out value="${sucessMsg}"></c:out>
+      </font>
+      </c:when>
+      <c:otherwise>
+      <font color="red">
+        <c:out value="${errorMsg}"></c:out>
+      </font>
+      </c:otherwise>
+    </c:choose>
+     
+    <a href="tel:95188">95188</a> 
+     <form action="msginput.do" enctype="application/x-www-form-urlencoded" method="post">
+ 		 <p>消息内容(xml): <textarea cols="100" rows="23"  name="content" ><c:out value="${msgContent}"></c:out></textarea></p><p>  
+ 		 <input type="submit" value="发送消息" />
+ 		 <p></p>
+ 		 消息样例(xml):<textarea cols="100" rows="23" name="example" readonly="readonly">
+<XML>
+  <ArticleCount><![CDATA[1]]></ArticleCount>
   <Articles>
     <Item>
-      <Title><![CDATA[感谢关注中国移动。]]></Title>
-      <Desc><![CDATA[]]></Desc>
-      <ImageUrl><![CDATA[]]></ImageUrl>
-      <ActionParam><![CDATA[]]></ActionParam>
-      <ActionType><![CDATA[]]></ActionType>
-      <AuthType><![CDATA[]]></AuthType>
-      <ActionName><![CDATA[]]></ActionName>
+      <Title><![CDATA[绑定卡001]]></Title>
+      <Desc/>
+      <ImageUrl/>
+      <Url><![CDATA[http:///110.76.38.30:8080/alipayDemoDev/applyAuth.do?tokenId=dd421890-aa35-41a2-bc8e-071a85acb819&userId=2088102135126443]]></Url>
+      <ActionName/>
+      <AuthType/>
     </Item>
   </Articles>
-</Xml>
- 		 </textarea></p>
- 		 <p>userId:<input type="text" name="userId"></input></p>
- 		 <input type="submit" value="Submit" />
-     </form>
-
+  <AppId><![CDATA[2013121100055554]]></AppId>
+  <ToUserId><![CDATA[2088102135126443]]></ToUserId>
+  <AgreementId/>
+  <CreateTime><![CDATA[1392859338048]]></CreateTime>
+  <MsgType><![CDATA[image-text]]></MsgType>
+  <ShowType/>
+</XML>
+ 	  </textarea>
+    </form>
 </body>
 </html>

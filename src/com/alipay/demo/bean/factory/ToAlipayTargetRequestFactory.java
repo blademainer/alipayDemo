@@ -15,8 +15,16 @@ import com.alipay.demo.bean.to.ToAlipayModelRequest;
 import com.alipay.demo.bean.to.ToAlipayTargetRequest;
 import com.alipay.demo.response.converter.to.ToAlipayAddAccountRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayDefaultRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayDeleteAccountRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayGisGetRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayMenuCreateRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayMenuQueryRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayMenuUpdateRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayMsgPushRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayQueryAccountRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayResetAccountRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipaySystemTokenRequestConverter;
 import com.alipay.demo.tools.LoggerUtil;
 
 /**
@@ -47,6 +55,14 @@ public class ToAlipayTargetRequestFactory {
         registerConverter(new ToAlipayDefaultRequestConverter());
         registerConverter(new ToAlipayAddAccountRequestConverter());
         registerConverter(new ToAlipayMsgPushRequestConverter());
+        registerConverter(new ToAlipaySystemTokenRequestConverter());
+        registerConverter(new ToAlipayMenuQueryRequestConverter());
+        registerConverter(new ToAlipayMenuUpdateRequestConverter());
+        registerConverter(new ToAlipayMenuCreateRequestConverter());
+        registerConverter(new ToAlipayResetAccountRequestConverter());
+        registerConverter(new ToAlipayQueryAccountRequestConverter());
+        registerConverter(new ToAlipayDeleteAccountRequestConverter());
+        registerConverter(new ToAlipayGisGetRequestConverter());
     }
 
     /**

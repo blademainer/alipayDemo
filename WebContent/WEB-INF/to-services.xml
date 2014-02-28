@@ -26,6 +26,13 @@
          <list>
            <ref local="toAlipayAddAccountExecutor"/>
            <ref local="toAlipayMsgPushExecutor"/>
+           <ref local="toAlipaySystemTokenExecutor"/>
+           <ref local="toAlipayMenuQueryExecutor"/>
+           <ref local="toAlipayMenuUpdateExecutor"/>
+           <ref local="toAlipayMenuCreateExecutor"/>
+           <ref local="toAlipayResetAccountExecutor"/>
+           <ref local="toAlipayQueryAccountExecutor" />
+           <ref local="toAlipayGisGetExecutor"/>
          </list>
       </property>
     </bean>
@@ -36,6 +43,30 @@
  
    <!-- 商户->支付宝推送用户消息执行器 -->
    <bean id="toAlipayMsgPushExecutor" class="com.alipay.demo.process.to.ToAlipayMsgPushExecutor" />
- 
+   
+   
+   <!-- 商户->支付宝转换authcode执行器 -->
+   <bean id="toAlipaySystemTokenExecutor" class="com.alipay.demo.process.to.ToAlipaySystemTokenExecutor" />
+   
+   
+   <!-- 商户->支付宝请求菜单查询执行器 -->
+   <bean id="toAlipayMenuQueryExecutor" class="com.alipay.demo.process.to.ToAlipayMenuQueryExecutor" />
+   
+    <!-- 商户->支付宝请求菜单更新执行器 -->
+    <bean id="toAlipayMenuUpdateExecutor" class="com.alipay.demo.process.to.ToAlipayMenuUpdateExecutor"/>
+    
+    
+    <!-- 商户->支付宝请求菜单创建执行器 -->
+  	<bean id="toAlipayMenuCreateExecutor" class="com.alipay.demo.process.to.ToAlipayMenuCreateExecutor"/>
+  	
+  	
+  	<!--  商户->支付宝重置外部户执行器  -->
+  	<bean id="toAlipayResetAccountExecutor" class="com.alipay.demo.process.to.ToAlipayResetAccountExecutor"/>
+  	
+  	<!--  商户->支付宝查询外部户执行器   -->
+  	<bean id="toAlipayQueryAccountExecutor" class="com.alipay.demo.process.to.ToAlipayQueryAccountExecutor"/>
+  	
+  	<!--  商户->支付宝查询地理位置执行器   -->
+  	<bean id="toAlipayGisGetExecutor" class="com.alipay.demo.process.to.ToAlipayGisGetExecutor" />
  
 </beans>

@@ -12,9 +12,9 @@ import com.alipay.demo.bean.ToStringBase;
  * 绑定外部户信息
  * 
  * @author jie.hua@alipay.com
- * @version $Id: AlipayAddAccountInfo.java, v 0.1 2014-1-10 上午10:06:02 jie.hua Exp $
+ * @version $Id: AlipayThirdAccountInfo.java, v 0.1 2014-1-10 上午10:06:02 jie.hua Exp $
  */
-public class AlipayAddAccountInfo extends ToStringBase implements Serializable {
+public class AlipayThirdAccountInfo extends ToStringBase implements Serializable {
 
     /** 序列号ID */
     private static final long serialVersionUID = 3697014169147539263L;

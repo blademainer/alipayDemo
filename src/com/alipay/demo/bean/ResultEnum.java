@@ -86,4 +86,13 @@ public enum ResultEnum {
         return resultMsg;
     }
 
+    /**
+     * Setter method for property <tt>resultMsg</tt>.
+     * 
+     * @param resultMsg value to be assigned to property resultMsg
+     */
+    public void setResultMsg(String resultMsg) {
+        this.resultMsg = resultMsg;
+    }
+
 }

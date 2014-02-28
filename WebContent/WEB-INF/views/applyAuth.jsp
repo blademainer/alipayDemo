@@ -18,6 +18,7 @@
  		 <p>支付宝账号: <label><c:out value="${loginId}"/></label></p>
    		 <p>会员名: <input type="text" name="cname" /></p>
  		 <p>会员卡号: <input type="text" name="cno" /></p>
+ 		 <p>外部户号:<input type="text" name="cthirdid"/></p>
  		 <p><input type="hidden" name="userId"  value="${userId}" /></p>
  		 <input type="submit" value="Submit" />
      </form>

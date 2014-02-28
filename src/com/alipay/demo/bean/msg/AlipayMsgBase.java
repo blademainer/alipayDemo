@@ -52,6 +52,12 @@ public class AlipayMsgBase extends ToStringBase {
     private String            msgType;
 
     /**
+     * 展示方式
+     */
+    @XStreamAlias("ShowType")
+    private String            showType;
+
+    /**
      * Getter method for property <tt>appId</tt>.
      * 
      * @return property value of appId
@@ -139,6 +145,24 @@ public class AlipayMsgBase extends ToStringBase {
      */
     public void setMsgType(String msgType) {
         this.msgType = msgType;
+    }
+
+    /**
+     * Getter method for property <tt>showType</tt>.
+     * 
+     * @return property value of showType
+     */
+    public String getShowType() {
+        return showType;
+    }
+
+    /**
+     * Setter method for property <tt>showType</tt>.
+     * 
+     * @param showType value to be assigned to property showType
+     */
+    public void setShowType(String showType) {
+        this.showType = showType;
     }
 
 }
