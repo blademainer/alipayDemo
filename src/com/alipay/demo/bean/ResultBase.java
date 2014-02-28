@@ -40,6 +40,9 @@ public class ResultBase extends ToStringBase implements Result, ResultSetter, Se
         super();
         this.resultCode = resultCode;
         this.resultMsg = resultMsg;
+
+        this.setSuccess(org.apache.commons.lang3.StringUtils.endsWithIgnoreCase(
+            ResultEnum.SUCESS.getResultCode(), this.resultCode));
     }
 
     /**
@@ -47,6 +50,7 @@ public class ResultBase extends ToStringBase implements Result, ResultSetter, Se
      * 
      * @return property value of resultCode
      */
+    @Override
     public String getResultCode() {
         return resultCode;
     }
@@ -56,6 +60,7 @@ public class ResultBase extends ToStringBase implements Result, ResultSetter, Se
      * 
      * @param resultCode value to be assigned to property resultCode
      */
+    @Override
     public void setResultCode(String resultCode) {
         this.resultCode = resultCode;
     }
@@ -65,6 +70,7 @@ public class ResultBase extends ToStringBase implements Result, ResultSetter, Se
      * 
      * @return property value of resultMsg
      */
+    @Override
     public String getResultMsg() {
         return resultMsg;
     }
@@ -74,6 +80,7 @@ public class ResultBase extends ToStringBase implements Result, ResultSetter, Se
      * 
      * @param resultMsg value to be assigned to property resultMsg
      */
+    @Override
     public void setResultMsg(String resultMsg) {
         this.resultMsg = resultMsg;
     }

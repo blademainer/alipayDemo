@@ -16,7 +16,12 @@ import com.alipay.demo.bean.to.ToAlipayModelResponse;
 import com.alipay.demo.bean.to.ToAlipayTargetResponse;
 import com.alipay.demo.response.converter.to.ToAlipayAddAccountResponseConverter;
 import com.alipay.demo.response.converter.to.ToAlipayDefaultResponseConverter;
+import com.alipay.demo.response.converter.to.ToAlipayGisGetResponseConverter;
+import com.alipay.demo.response.converter.to.ToAlipayMenuQueryResponseConverter;
+import com.alipay.demo.response.converter.to.ToAlipayQueryAccountResponseConverter;
+import com.alipay.demo.response.converter.to.ToAlipayResetAccountResponseConverter;
 import com.alipay.demo.response.converter.to.ToAlipayResponseConverter;
+import com.alipay.demo.response.converter.to.ToAlipaySystemTokenResponseConverter;
 import com.alipay.demo.tools.LoggerUtil;
 
 /**
@@ -45,6 +50,11 @@ public class ToAlipayModelResponseFactory {
 
         registerConverter(new ToAlipayAddAccountResponseConverter());
         registerConverter(new ToAlipayDefaultResponseConverter());
+        registerConverter(new ToAlipaySystemTokenResponseConverter());
+        registerConverter(new ToAlipayMenuQueryResponseConverter());
+        registerConverter(new ToAlipayResetAccountResponseConverter());
+        registerConverter(new ToAlipayQueryAccountResponseConverter());
+        registerConverter(new ToAlipayGisGetResponseConverter());
 
     }
 

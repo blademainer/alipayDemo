@@ -61,10 +61,49 @@ public class MsgConstants {
     public static class MenuKeys {
 
         /**
-         * 消息应答式菜单key
+         * 消息应答式菜单key:会显示消息
          */
-        public static final String MENU_MSG_RESP = "MSG_RESP";
+        public static final String MENU_MSG_RESP      = "MSG_RESP";
 
+        /**
+         * 消息应答式菜单key:直接打开消息
+         */
+        public static final String MENU_MSG_OPEN_RESP = "MSG_OPEN_RESP";
+
+    }
+
+    /**
+     * 消息展示类型
+     * 
+     * @author jie.hua@alipay.com
+     * @version $Id: MsgConstants.java, v 0.1 2014-2-15 下午4:44:02 jiehua Exp $
+     */
+    public static class MsgShowType {
+
+        /**
+         * 靠左显示
+         */
+        public static final String SHOW_LEFT   = "show_left";
+
+        /**
+         * 直接打开
+         */
+        public static final String OPEN_DIRECT = "open_direct";
+
+    }
+
+    /**
+     * 消息授权类型
+     * 
+     * @author jie.hua@alipay.com
+     * @version $Id: MsgConstants.java, v 0.1 2014-2-15 下午4:49:42 jiehua Exp $
+     */
+    public static class MsgAuthType {
+
+        /**
+         * 免登信息共享
+         */
+        public static final String LOGIN_AUTH_TYPE = "loginAuth";
     }
 
 }

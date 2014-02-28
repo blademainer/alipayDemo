@@ -36,7 +36,7 @@ public class InAlipayMenuMsgExecutor extends InServiceExecutor {
     /**
      * 操作名称
      */
-    private static final String OPERATION_NAME = "【支付宝点击菜单请求】";
+    private static final String OPERATION_NAME = "【支付宝点击菜单请求-展示消息】";
 
     /**
      * 日志
@@ -95,7 +95,8 @@ public class InAlipayMenuMsgExecutor extends InServiceExecutor {
     private String buildMsgDesc() {
 
         StringBuilder msgBuilder = new StringBuilder(100);
-        msgBuilder.append("这是一种菜单响应机制").append("\n").append("商户可以根据不同菜单响应不同的消息");
+        msgBuilder.append("这是一种菜单响应机制").append("\n").append("商户可以根据不同菜单响应不同的消息\n")
+            .append("返回会显示消息体");
 
         return msgBuilder.toString();
     }

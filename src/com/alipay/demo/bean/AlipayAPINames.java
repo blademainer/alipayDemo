@@ -20,16 +20,56 @@ public class AlipayAPINames {
     /**
      * 支付宝请求商户的统一API
      */
-    public static final String ALIPAY_TO_MERCHANT_API = "alipay.mobile.public.message.notify";
+    public static final String ALIPAY_TO_MERCHANT_API        = "alipay.mobile.public.message.notify";
 
     /**
      * 支付宝账户绑定回调API
      */
-    public static final String ALIPAY_ADD_ACCOUNT_API = "alipay.mobile.public.account.add";
+    public static final String ALIPAY_ADD_ACCOUNT_API        = "alipay.mobile.public.account.add";
+
+    /**
+     * 支付宝账户删除API
+     */
+    public static final String ALIPAY_DELETE_ACCOUNT_API     = "alipay.mobile.public.account.delete";
+
+    /**
+     * 支付宝账户重置API
+     */
+    public static final String ALIPAY_RESET_ACCOUNT_API      = "alipay.mobile.public.account.reset";
+
+    /**
+     * 支付宝账户查询API
+     */
+    public static final String ALIPAY_QUERY_ACCOUNT_API      = "alipay.mobile.public.account.query";
 
     /**
      * 支付宝推送用户消息API
      */
-    public static final String ALIPAY_MSG_PUSH_API    = "alipay.mobile.public.message.push";
+    public static final String ALIPAY_MSG_PUSH_API           = "alipay.mobile.public.message.push";
+
+    /**
+     * 支付宝授权码换取API
+     */
+    public static final String ALIPAY_SYSTEM_OAUTH_TOKEN_API = "alipay.system.oauth.token";
+
+    /**
+     * 菜单查询API
+     */
+    public static final String ALIPAY_MENU_GET_API           = "alipay.mobile.public.menu.get";
+
+    /**
+     * 菜单创建API
+     */
+    public static final String ALIPAY_MENU_ADD_API           = "alipay.mobile.public.menu.add";
+
+    /**
+     * 菜单更新API
+     */
+    public static final String ALIPAY_MENU_UPDATE_API        = "alipay.mobile.public.menu.update";
+
+    /**
+     * 用户地理位置信息获取
+     */
+    public static final String ALIPAY_GIS_GET_API            = "alipay.mobile.public.gis.get";
 
 }

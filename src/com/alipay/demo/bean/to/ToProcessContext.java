@@ -74,7 +74,7 @@ public class ToProcessContext extends ProcessContext {
     @Override
     public <T extends BeanWire> T getInstruction(Class<T> t) {
 
-        if (t == ToAlipayModelRequest.class) {
+        if (ToAlipayModelRequest.class.isAssignableFrom(t)) {
 
             return (T) toAlipayModelRequest;
         } else if (t == ToAlipayTargetRequest.class) {

@@ -21,6 +21,11 @@ public enum AlipayEnviromentType {
     SANDBOX("SANDBOX", "支付宝沙箱环境"),
 
     /**
+     * 支付宝内部环境
+     */
+    TEST("TEST", "支付宝内部测试环境"),
+
+    /**
      * 支付宝线上环境
      */
     ONLINE("ONLINE", "支付宝线上环境");

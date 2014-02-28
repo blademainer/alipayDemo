@@ -19,13 +19,13 @@ import com.thoughtworks.xstream.annotations.XStreamAlias;
 public class AlipayArticleMsg extends AlipayMsgBase {
 
     /** 序列号ID */
-    private static final long         serialVersionUID = -3848958136465754732L;
+    private static final long       serialVersionUID = -3848958136465754732L;
 
     /**
      * 消息个数
      */
     @XStreamAlias("ArticleCount")
-    private int                       articleCount;
+    private int                     articleCount;
 
     /**
      * 消息体内容
