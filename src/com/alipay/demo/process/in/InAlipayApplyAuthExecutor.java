@@ -65,6 +65,7 @@ public class InAlipayApplyAuthExecutor extends InServiceExecutor {
         AlipayArticleItem item = new AlipayArticleItem();
         item.setTitle("绑定卡");
         item.setUrl(builderAuthUrl(alipayInBizContent, cacheId));
+        item.setAuthType(MsgConstants.MsgAuthType.LOGIN_AUTH_TYPE);
 
         // 2.申请绑定完整消息
         AlipayArticleMsg toAlipayArticleMsg = new AlipayArticleMsg();
