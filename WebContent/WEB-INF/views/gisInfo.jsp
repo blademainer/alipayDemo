@@ -48,7 +48,11 @@
 	  </c:when>
 	  <c:when test="${result}">
 	  <font color="blue">
+
 	   用户id:<c:out value="${userId}"></c:out>在公众号:<c:out value="${publicId}"></c:out>下的信息如下：<br>
+
+
+
 	  </font>
 	  </c:when>
 	</c:choose>

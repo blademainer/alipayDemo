@@ -99,7 +99,8 @@ public class AlipayGisInfoController {
         if (modelResp.isSuccess()) {
 
             ToAlipayGisInfo gisInfo = ((ToAlipayGisGetModelResponse) modelResp).getGisInfo();
-            model.addAttribute("gisExist", gisInfo == null);
+
+            model.addAttribute("gisExist", gisInfo != null);
             model.addAttribute("gisInfo", gisInfo);
 
         }

@@ -18,7 +18,9 @@
      	<li><a href="accountQuery.do" target="_blank" >查询外部户</a></li>
      	<li><a href="deleteAuth.do" target="_blank" >删除外部户</a></li>
      	<li><a href="gisInfo.do" target="_blank" >查询地址位置</a></li>
+
      	<li><a href="genQrcode.do" target="_blank" >生成二维码</a></li>
+
      	</ul>
    
   
