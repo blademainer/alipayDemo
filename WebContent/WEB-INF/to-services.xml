@@ -33,6 +33,7 @@
            <ref local="toAlipayResetAccountExecutor"/>
            <ref local="toAlipayQueryAccountExecutor" />
            <ref local="toAlipayGisGetExecutor"/>
+           <ref local="toAlipayQRCreateExecutor" />
          </list>
       </property>
     </bean>
@@ -68,5 +69,8 @@
   	
   	<!--  商户->支付宝查询地理位置执行器   -->
   	<bean id="toAlipayGisGetExecutor" class="com.alipay.demo.process.to.ToAlipayGisGetExecutor" />
+  	
+  	<!-- 商户->支付宝生成推广二维码执行器 -->
+  	<bean id="toAlipayQRCreateExecutor" class="com.alipay.demo.process.to.ToAlipayQRCreateExecutor"/>
  
 </beans>

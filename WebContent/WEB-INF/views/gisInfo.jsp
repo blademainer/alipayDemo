@@ -41,7 +41,7 @@
 	
 <center>
 	<c:choose>
-	  <c:when test="${gisExist}">
+	  <c:when test="!${gisExist}">
 	   <font color="red">
 	    用户id:<c:out value="${userId}"></c:out>在公众号:<c:out value="${publicId}"></c:out>下没有地址位置信息!
 	   </font>

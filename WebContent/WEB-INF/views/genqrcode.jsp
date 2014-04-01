@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=GB18030">
 <meta name="viewport" content="width=device-width, user-scalable=yes" />
-<title>支付宝-菜单查询页面</title>
+<title>支付宝-生成自定义二维码图片</title>
 </head>
 <body>
      <center>
@@ -37,6 +37,17 @@
 			</tr>
 		</table>
 	</form>
+	
+	<center>
+	
+	 <c:choose >
+	    <c:when test="${result}">
+	  二维码地址：<c:out value="${imageUrl}"></c:out><br>
+	  有效期：<c:out value="${expiredTime}"></c:out><br>
+	  </c:when>
+	  </c:choose>
+	
+	</center>
 
 
 <script type="text/javascript">

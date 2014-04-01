@@ -22,7 +22,8 @@ public class SandboxConfig extends ToStringBase implements Config {
      */
     @Override
     public String getGateWay() {
-        return "http://openapi.alipaydev.com/gateway.do";
+        return "http://openapi.stable.alipay.net/gateway.do";
+
     }
 
     /** 

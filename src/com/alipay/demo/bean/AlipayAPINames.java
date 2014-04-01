@@ -72,4 +72,9 @@ public class AlipayAPINames {
      */
     public static final String ALIPAY_GIS_GET_API            = "alipay.mobile.public.gis.get";
 
+    /**
+     * 创建自定义二维码
+     */
+    public static final String ALIPAY_GEN_QR_CODE_API        = "alipay.mobile.public.qrcode.create";
+
 }

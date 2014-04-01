@@ -21,6 +21,7 @@ import com.alipay.demo.response.converter.to.ToAlipayMenuCreateRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayMenuQueryRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayMenuUpdateRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayMsgPushRequestConverter;
+import com.alipay.demo.response.converter.to.ToAlipayQRcreateRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayQueryAccountRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayRequestConverter;
 import com.alipay.demo.response.converter.to.ToAlipayResetAccountRequestConverter;
@@ -63,6 +64,7 @@ public class ToAlipayTargetRequestFactory {
         registerConverter(new ToAlipayQueryAccountRequestConverter());
         registerConverter(new ToAlipayDeleteAccountRequestConverter());
         registerConverter(new ToAlipayGisGetRequestConverter());
+        registerConverter(new ToAlipayQRcreateRequestConverter());
     }
 
     /**
