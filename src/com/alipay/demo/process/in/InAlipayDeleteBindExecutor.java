@@ -7,7 +7,6 @@ package com.alipay.demo.process.in;
 import org.apache.log4j.Logger;
 
 import com.alipay.demo.bean.LoggerNames;
-import com.alipay.demo.bean.ResultEnum;
 import com.alipay.demo.bean.in.AlipayInBizContent;
 import com.alipay.demo.bean.in.AlipayInModelRequest;
 import com.alipay.demo.bean.in.AlipayInModelResponse;
@@ -49,10 +48,8 @@ public class InAlipayDeleteBindExecutor extends InServiceExecutor {
         AlipayInBizContent alipayInBizContent = alipayInRequest.getAlipayInBizContent();
 
         //TODO 这里只是简单demo直接返回成功，实际需要删除商户本地绑定关系
-        AlipayInModelResponse alipayInModelResponse = new AlipayInModelResponse(
-            ResultEnum.SUCESS.getResultCode(), ResultEnum.SUCESS.getResultMsg());
 
-        inProcessContext.setAlipayInResponse(alipayInModelResponse);
+        inProcessContext.setAlipayInResponse(AlipayInModelResponse.buildSuccessResponse());
 
         LoggerUtil.info(logger, OPERATION_NAME + ",执行删除绑定处理完毕.[alipayInBizContent="
                                 + alipayInBizContent + "]");

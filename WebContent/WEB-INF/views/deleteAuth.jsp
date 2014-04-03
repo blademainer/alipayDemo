@@ -17,7 +17,7 @@
      	<c:when test="${result}">
      	   <font color="blue">
      		<c:out value="${resultMsg}"></c:out><br>
-     		协议号：<c:out value="${agreementId}"></c:out>
+     		
      		</font>
      	</c:when>
      	<c:otherwise>
@@ -29,24 +29,21 @@
      </c:choose>
      
      
-     <form action="updateAuth.do" enctype="application/x-www-form-urlencoded" method="post">
+     <form action="deleteAuth.do" enctype="application/x-www-form-urlencoded" method="post">
      
        <table align="center" border="1" width="600px" cellpadding="0" cellspacing="0">
           <tr>
-            <td>会员名: </td>
-            <td><input type="text" name="cname"  value="${cname}"/><font color="red">*</font></td>
-          </tr>
-          <tr>
-           <td>会员卡号:</td>
-           <td><input type="text" name="cno" value="${cno}" /><font color="red">*</font></td>
-          </tr>
-          <tr>
           	<td>外部户号:</td>
-          	<td><input type="text" name="cthirdid" value="${cthirdid}"/><font color="red">*</font></td>
+          	<td><input type="text" name="cthirdid" value="${cthirdid}"/></td>
           </tr>
+          
           <tr>
+          	<td>外部户协议号:</td>
+          	<td><input type="text" name="agrId" value="${agrId}" /></td>
+          </tr>
+            <tr>
           	<td>支付宝userId:</td>
-          	<td><input type="text" name="cuserid" value="${cuserid}" /><font color="red">*</font></td>
+          	<td><input type="text" name="cuserid" value="${cuserid}" /></td>
           </tr>
           <tr>
           	<td><input type="submit" value="删除" /></td>

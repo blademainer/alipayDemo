@@ -49,6 +49,8 @@ public class AlipayResetAccountController {
     /***/
     private static final String CTHIRDID   = "cthirdid";
 
+    private static final String ARGID      = "agrId";
+
     /**
      * 对外执行引擎
      */
@@ -80,6 +82,7 @@ public class AlipayResetAccountController {
         String displayName = httpServletRequest.getParameter(CNO);
         String realName = httpServletRequest.getParameter(CNAME);
         String userId = httpServletRequest.getParameter(CUSERID);
+        String agrementId = httpServletRequest.getParameter(ARGID);
 
         AlipayThirdAccountInfo accountInfo = new AlipayThirdAccountInfo();
         accountInfo.setAppId(SystemConfig.getPublicId());
@@ -87,6 +90,7 @@ public class AlipayResetAccountController {
         accountInfo.setDisplayName(displayName);
         accountInfo.setRealName(realName);
         accountInfo.setFromUserId(userId);
+        accountInfo.setAgreementId(agrementId);
 
         if (!validateInfo(accountInfo)) {
 
@@ -114,7 +118,7 @@ public class AlipayResetAccountController {
         if (modelResp.isSuccess()) {
 
             ToAlipayResetAccountModelResponse resetResp = (ToAlipayResetAccountModelResponse) modelResp;
-            model.addAttribute("agreementId", resetResp.getAgreementId());
+            model.addAttribute(ARGID, resetResp.getAgreementId());
             model.addAttribute(CTHIRDID, thirdId);
             model.addAttribute(CNO, displayName);
             model.addAttribute(CNAME, realName);

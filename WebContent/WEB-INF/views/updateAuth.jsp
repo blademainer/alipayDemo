@@ -45,6 +45,10 @@
           	<td><input type="text" name="cthirdid" value="${cthirdid}"/><font color="red">*</font></td>
           </tr>
           <tr>
+          	<td>外部户协议号:</td>
+          	<td><input type="text" name="agrId" value="${agrId}" /><font color="red">*</font></td>
+          </tr>
+          <tr>
           	<td>支付宝userId:</td>
           	<td><input type="text" name="cuserid" value="${cuserid}" /><font color="red">*</font></td>
           </tr>

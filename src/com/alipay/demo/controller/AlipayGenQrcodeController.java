@@ -33,6 +33,12 @@ import com.alipay.demo.process.ServiceEngine;
 public class AlipayGenQrcodeController {
 
     /**  */
+    private static final String SCEN_ID      = "scenId";
+
+    /***/
+    private static final String SHOW_LOGO    = "showLogo";
+
+    /**  */
     private static final String RESULT_MSG   = "resultMsg";
 
     /**  */
@@ -73,7 +79,8 @@ public class AlipayGenQrcodeController {
     @RequestMapping(method = RequestMethod.POST, value = "genQrcode.do")
     public String doGen(HttpServletRequest request, Model model) {
 
-        String sceneId = request.getParameter("scenId");
+        String sceneId = request.getParameter(SCEN_ID);
+        String showLogo = request.getParameter(SHOW_LOGO);
 
         if (StringUtils.isEmpty(sceneId)) {
 
@@ -91,6 +98,7 @@ public class AlipayGenQrcodeController {
         codeInfo.setScene(scene);
 
         AlipayQRCodeCreateInfo createInfo = new AlipayQRCodeCreateInfo();
+        createInfo.setShowLogo(StringUtils.isEmpty(showLogo) ? "N" : "Y");
         createInfo.setCodeInfo(codeInfo);
 
         ToAlipayQRCodeCreateModelRequest modelRequest = new ToAlipayQRCodeCreateModelRequest();

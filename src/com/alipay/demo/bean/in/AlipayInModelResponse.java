@@ -4,6 +4,9 @@
  */
 package com.alipay.demo.bean.in;
 
+import org.apache.commons.lang3.StringUtils;
+
+import com.alipay.demo.bean.ResultEnum;
 
 /**
  * 支付宝请求商户的相应应答
@@ -19,7 +22,7 @@ public class AlipayInModelResponse extends AlipayInResponseParam {
     /**
      * 响应应答的数据
      */
-    private String            merchantMsg;
+    private String            merchantMsg      = StringUtils.EMPTY;
 
     /**
      * 构建一个失败的结果
@@ -33,6 +36,22 @@ public class AlipayInModelResponse extends AlipayInResponseParam {
         AlipayInModelResponse alipayModelReponseParam = new AlipayInModelResponse(resultCode,
             resultMsg);
         alipayModelReponseParam.setSuccess(false);
+
+        return alipayModelReponseParam;
+
+    }
+
+    /**
+     * 构建一个成功的结果
+     * 
+     * @return
+     */
+    public static AlipayInModelResponse buildSuccessResponse() {
+
+        AlipayInModelResponse alipayModelReponseParam = new AlipayInModelResponse(
+            ResultEnum.SUCESS.getResultCode(), ResultEnum.SUCESS.getResultMsg());
+
+        alipayModelReponseParam.setMerchantMsg(StringUtils.EMPTY);
 
         return alipayModelReponseParam;
 

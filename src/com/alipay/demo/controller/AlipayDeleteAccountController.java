@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.alipay.demo.bean.to.AlipayThirdAccountInfo;
 import com.alipay.demo.bean.to.ToAlipayDeleteAccountModelRequest;
 import com.alipay.demo.bean.to.ToAlipayModelResponse;
-import com.alipay.demo.bean.to.ToAlipayResetAccountModelResponse;
 import com.alipay.demo.bean.to.ToProcessContext;
 import com.alipay.demo.config.SystemConfig;
 import com.alipay.demo.process.ServiceEngine;
@@ -35,17 +34,13 @@ public class AlipayDeleteAccountController {
     /**  */
     private static final String RESULT     = "result";
 
-    /**  */
-    private static final String CUSERID    = "cuserid";
-
-    /**  */
-    private static final String CNO        = "cno";
-
-    /**  */
-    private static final String CNAME      = "cname";
-
     /***/
     private static final String CTHIRDID   = "cthirdid";
+
+    private static final String ARGID      = "agrId";
+
+    /**  */
+    private static final String CUSERID    = "cuserid";
 
     /**
      * 对外执行引擎
@@ -76,16 +71,14 @@ public class AlipayDeleteAccountController {
     public String doDelete(HttpServletRequest httpServletRequest, Model model) {
 
         String thirdId = httpServletRequest.getParameter(CTHIRDID);
-        String displayName = httpServletRequest.getParameter(CNO);
-        String realName = httpServletRequest.getParameter(CNAME);
-        String userId = httpServletRequest.getParameter(CUSERID);
+        String agreementId = httpServletRequest.getParameter(ARGID);
+        String fromUserId = httpServletRequest.getParameter(CUSERID);
 
         AlipayThirdAccountInfo accountInfo = new AlipayThirdAccountInfo();
         accountInfo.setAppId(SystemConfig.getPublicId());
         accountInfo.setBindAccountNo(thirdId);
-        accountInfo.setDisplayName(displayName);
-        accountInfo.setRealName(realName);
-        accountInfo.setFromUserId(userId);
+        accountInfo.setAgreementId(agreementId);
+        accountInfo.setFromUserId(fromUserId);
 
         ToAlipayDeleteAccountModelRequest modelRequest = new ToAlipayDeleteAccountModelRequest();
         modelRequest.setAlipayThirdAccountInfo(accountInfo);
@@ -100,18 +93,7 @@ public class AlipayDeleteAccountController {
         model.addAttribute(RESULT, modelResp.isSuccess());
         model.addAttribute(RESULT_MSG, modelResp.getResultMsg());
 
-        if (modelResp.isSuccess()) {
-
-            ToAlipayResetAccountModelResponse resetResp = (ToAlipayResetAccountModelResponse) modelResp;
-            model.addAttribute("agreementId", resetResp.getAgreementId());
-            model.addAttribute(CTHIRDID, thirdId);
-            model.addAttribute(CNO, displayName);
-            model.addAttribute(CNAME, realName);
-            model.addAttribute(CUSERID, userId);
-        }
-
         return "deleteAuth";
 
     }
-
 }

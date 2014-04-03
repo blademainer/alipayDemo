@@ -16,6 +16,7 @@ import com.alipay.demo.bean.to.ToAlipayModelResponse;
 import com.alipay.demo.bean.to.ToAlipayTargetResponse;
 import com.alipay.demo.response.converter.to.ToAlipayAddAccountResponseConverter;
 import com.alipay.demo.response.converter.to.ToAlipayDefaultResponseConverter;
+import com.alipay.demo.response.converter.to.ToAlipayDeleteAccountResponseConverter;
 import com.alipay.demo.response.converter.to.ToAlipayGisGetResponseConverter;
 import com.alipay.demo.response.converter.to.ToAlipayMenuQueryResponseConverter;
 import com.alipay.demo.response.converter.to.ToAlipayQRCreateResponseConverter;
@@ -57,6 +58,7 @@ public class ToAlipayModelResponseFactory {
         registerConverter(new ToAlipayQueryAccountResponseConverter());
         registerConverter(new ToAlipayGisGetResponseConverter());
         registerConverter(new ToAlipayQRCreateResponseConverter());
+        registerConverter(new ToAlipayDeleteAccountResponseConverter());
 
     }
 

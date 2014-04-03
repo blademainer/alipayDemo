@@ -45,6 +45,11 @@ public class AlipayThirdAccountInfo extends ToStringBase implements Serializable
     private String            fromUserId;
 
     /**
+     * 绑定的外部户协议号id
+     */
+    private String            agreementId;
+
+    /**
      * Getter method for property <tt>appId</tt>.
      * 
      * @return property value of appId
@@ -132,6 +137,24 @@ public class AlipayThirdAccountInfo extends ToStringBase implements Serializable
      */
     public void setFromUserId(String fromUserId) {
         this.fromUserId = fromUserId;
+    }
+
+    /**
+     * Getter method for property <tt>agreementId</tt>.
+     * 
+     * @return property value of agreementId
+     */
+    public String getAgreementId() {
+        return agreementId;
+    }
+
+    /**
+     * Setter method for property <tt>agreementId</tt>.
+     * 
+     * @param agreementId value to be assigned to property agreementId
+     */
+    public void setAgreementId(String agreementId) {
+        this.agreementId = agreementId;
     }
 
 }

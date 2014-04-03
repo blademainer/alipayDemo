@@ -34,6 +34,7 @@
            <ref local="toAlipayQueryAccountExecutor" />
            <ref local="toAlipayGisGetExecutor"/>
            <ref local="toAlipayQRCreateExecutor" />
+           <ref local="toAlipayDelAccountExecutor"/>
          </list>
       </property>
     </bean>
@@ -66,6 +67,9 @@
   	
   	<!--  商户->支付宝查询外部户执行器   -->
   	<bean id="toAlipayQueryAccountExecutor" class="com.alipay.demo.process.to.ToAlipayQueryAccountExecutor"/>
+  	
+  	<!-- 商户->支付宝删除外部户执行器 -->
+  	<bean id="toAlipayDelAccountExecutor" class="com.alipay.demo.process.to.ToAlipayDelAccountExecutor"/>
   	
   	<!--  商户->支付宝查询地理位置执行器   -->
   	<bean id="toAlipayGisGetExecutor" class="com.alipay.demo.process.to.ToAlipayGisGetExecutor" />

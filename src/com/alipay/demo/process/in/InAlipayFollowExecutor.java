@@ -7,9 +7,9 @@ package com.alipay.demo.process.in;
 import org.apache.log4j.Logger;
 
 import com.alipay.demo.bean.LoggerNames;
-import com.alipay.demo.bean.factory.AlipayInCommonRespFactory;
-import com.alipay.demo.bean.in.AlipayInCommonResponse;
-import com.alipay.demo.bean.in.AlipayInSuccessInfo;
+import com.alipay.demo.bean.in.AlipayInBizContent;
+import com.alipay.demo.bean.in.AlipayInModelRequest;
+import com.alipay.demo.bean.in.AlipayInModelResponse;
 import com.alipay.demo.bean.in.InProcessContext;
 import com.alipay.demo.bean.msg.MsgConstants;
 import com.alipay.demo.bean.process.Instruction;
@@ -43,22 +43,17 @@ public class InAlipayFollowExecutor extends InServiceExecutor {
         LoggerUtil.info(logger, OPERATION_NAME + ",开始执行关注通知操作.");
 
         InProcessContext inProcessContext = instruction.getInstruction(InProcessContext.class);
+        AlipayInModelRequest alipayInRequest = inProcessContext
+            .getInstruction(AlipayInModelRequest.class);
+        AlipayInBizContent alipayInBizContent = alipayInRequest.getAlipayInBizContent();
 
         //TODO 根据支付宝请求参数，可以将支付宝账户UID-公众号ID关系持久化，用于后续商户自己的其他操作
         // 这里只是个样例程序，所以这步省略。
         // 直接构造简单响应结果返回
-        AlipayInSuccessInfo alipayInSuccessInfo = new AlipayInSuccessInfo();
-        alipayInSuccessInfo.setSuccess(true);
+        inProcessContext.setAlipayInResponse(AlipayInModelResponse.buildSuccessResponse());
 
-        AlipayInCommonResponse inCommonResponse = AlipayInCommonResponse.getSuccessResponse();
-        inCommonResponse.setAlipayInSuccessInfo(alipayInSuccessInfo);
-        inCommonResponse.setMerchantMsg(AlipayInCommonRespFactory
-            .toArributeXML(alipayInSuccessInfo));
-
-        inProcessContext.setAlipayInResponse(inCommonResponse);
-
-        LoggerUtil.info(logger, OPERATION_NAME + ",执行关注通知处理完毕.[inCommonResponse="
-                                + inCommonResponse + "]");
+        LoggerUtil.info(logger, OPERATION_NAME + ",执行关注通知处理完毕.[alipayInBizContent="
+                                + alipayInBizContent + "]");
 
     }
 

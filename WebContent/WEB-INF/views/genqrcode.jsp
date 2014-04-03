@@ -29,6 +29,12 @@
 				</td>
 			</tr>		
 			<tr>
+				<td >ÊÇ·ñÌí¼Ólogo£º</td>
+				<td>
+					<input type="radio" name="showLogo" size="60" value="false"  /><font color="red">*</font>
+				</td>
+			</tr>	
+			<tr>
 				<td >
 				</td>
 				<td>
