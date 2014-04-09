@@ -26,6 +26,11 @@ public enum AlipayEnviromentType {
     TEST("TEST", "支付宝内部测试环境"),
 
     /**
+     * 支付宝内部测试环境： 少卿公众号
+     */
+    SHAOQ_TEST("SHAOQ_TEST", "支付宝内部测试环境-少卿公众号"),
+
+    /**
      * 支付宝线上环境
      */
     ONLINE("ONLINE", "支付宝线上环境");

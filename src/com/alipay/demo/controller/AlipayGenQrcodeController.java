@@ -49,6 +49,8 @@ public class AlipayGenQrcodeController {
 
     private static final String EXPIRED_TIME = "expiredTime";
 
+    private static final String QR_TYPE      = "qrtype";
+
     /**
      * 对外执行引擎
      */
@@ -63,7 +65,10 @@ public class AlipayGenQrcodeController {
      *
      */
     @RequestMapping(method = RequestMethod.GET, value = "genQrcode.do")
-    public String doGet() {
+    public String doGet(Model model) {
+
+        model.addAttribute(SHOW_LOGO, "N");
+        model.addAttribute(QR_TYPE, "TEMP");
 
         return "genqrcode";
     }
@@ -81,6 +86,7 @@ public class AlipayGenQrcodeController {
 
         String sceneId = request.getParameter(SCEN_ID);
         String showLogo = request.getParameter(SHOW_LOGO);
+        String qrType = request.getParameter(QR_TYPE);
 
         if (StringUtils.isEmpty(sceneId)) {
 
@@ -98,8 +104,9 @@ public class AlipayGenQrcodeController {
         codeInfo.setScene(scene);
 
         AlipayQRCodeCreateInfo createInfo = new AlipayQRCodeCreateInfo();
-        createInfo.setShowLogo(StringUtils.isEmpty(showLogo) ? "N" : "Y");
+        createInfo.setShowLogo(StringUtils.isEmpty(showLogo) ? "N" : showLogo);
         createInfo.setCodeInfo(codeInfo);
+        createInfo.setCodeType(qrType);
 
         ToAlipayQRCodeCreateModelRequest modelRequest = new ToAlipayQRCodeCreateModelRequest();
         modelRequest.setInfo(createInfo);
@@ -113,6 +120,9 @@ public class AlipayGenQrcodeController {
 
         model.addAttribute(RESULT, modelResp.isSuccess());
         model.addAttribute(RESULT_MSG, modelResp.getResultMsg());
+        model.addAttribute(SCEN_ID, sceneId);
+        model.addAttribute(SHOW_LOGO, showLogo);
+        model.addAttribute(QR_TYPE, qrType);
 
         if (modelResp.isSuccess()) {
 

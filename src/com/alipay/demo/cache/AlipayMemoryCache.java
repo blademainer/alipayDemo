@@ -6,6 +6,8 @@ package com.alipay.demo.cache;
 
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.StringUtils;
+
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 
@@ -73,6 +75,7 @@ public class AlipayMemoryCache implements com.alipay.demo.cache.Cache {
      * @param key
      * @param value
      */
+    @Override
     public void put(String key, Object value) {
 
         this.cache.put(key, value);
@@ -85,7 +88,13 @@ public class AlipayMemoryCache implements com.alipay.demo.cache.Cache {
      * @param key
      * @return
      */
+    @Override
     public Object get(String key) {
+
+        if (StringUtils.isEmpty(key)) {
+
+            return null;
+        }
 
         return this.cache.getIfPresent(key);
     }

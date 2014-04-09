@@ -102,6 +102,7 @@ public class SystemConfig {
         configMap.put(AlipayEnviromentType.SANDBOX.getCode(), new SandboxConfig());
         configMap.put(AlipayEnviromentType.ONLINE.getCode(), new OnlineConfigNoCommit());
         configMap.put(AlipayEnviromentType.TEST.getCode(), new TestEnvConfig());
+        configMap.put(AlipayEnviromentType.SHAOQ_TEST.getCode(), new ShaoqTestEnvConfig());
 
     }
 

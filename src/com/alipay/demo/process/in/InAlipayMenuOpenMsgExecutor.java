@@ -73,7 +73,6 @@ public class InAlipayMenuOpenMsgExecutor extends InServiceExecutor {
         toAlipayArticleMsg.setMsgType(MsgConstants.IMGTXT_MSG_TYPE);
         toAlipayArticleMsg.setCreateTime(new Date());
         toAlipayArticleMsg.setToUserId(alipayInBizContent.getFromUserId());
-        toAlipayArticleMsg.setShowType(MsgConstants.MsgShowType.OPEN_DIRECT);
 
         // 3.…Í«Î∞Û∂®ªÿ∏¥œÏ”¶
         AlipayInArticleMsgResponse alipayInArticleMsgResponse = AlipayInArticleMsgResponse

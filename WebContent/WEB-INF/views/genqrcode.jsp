@@ -21,7 +21,24 @@
 	  </center>
 		
        <form action="genQrcode.do" method="post" id="genqrcode" name="genqrcode">
-	   <table align="center" border="0" width="600px" cellpadding="0" cellspacing="0">
+	   <table align="center" border="1" width="600px" cellpadding="0" cellspacing="0">
+	       
+	       	<tr>
+				<td >二维码类型：<font color="red">*</font></td>
+				<td>
+					<input type="radio" name="qrtype" size="60" value="TEMP"  
+					   <c:if test="${qrtype=='TEMP'}">
+				        checked="checked"
+					   </c:if>
+					/>临时码
+					<input type="radio" name="qrtype" size="60" value="PERM"  
+					   <c:if test="${qrtype=='PERM'}">
+				        checked="checked"
+					   </c:if>
+					/>永久码
+					
+				</td>
+			</tr>	
 			<tr>
 				<td >自定义参数：</td>
 				<td>
@@ -29,9 +46,18 @@
 				</td>
 			</tr>		
 			<tr>
-				<td >是否添加logo：</td>
+				<td >是否添加logo：<font color="red">*</font></td>
 				<td>
-					<input type="radio" name="showLogo" size="60" value="false"  /><font color="red">*</font>
+					<input type="radio" name="showLogo" size="60" value="Y"  
+					 <c:if test="${showLogo=='Y'}">
+				        checked="checked"
+					 </c:if>
+					/>是
+				   <input type="radio" name="showLogo" size="60" value="N" 
+				    <c:if test="${showLogo=='N'}">
+				        checked="checked"
+					 </c:if>
+				   />否
 				</td>
 			</tr>	
 			<tr>

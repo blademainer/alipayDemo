@@ -33,6 +33,7 @@
 		       <ref local="inAlipayUnFollowExecutor"/>
 		       <ref local="inAlipayMenuMsgExecutor"/>
 		       <ref local="inAlipayMenuOpenMsgExecutor" />
+		       <ref local="inAlipayQRScanExecutor"/>
 		   </list>
 		 </property>
 		</bean>
@@ -58,5 +59,9 @@
 		
 		<!-- 支付宝->商户菜单点击-直接打开消息服务 -->
 		<bean id="inAlipayMenuOpenMsgExecutor" class="com.alipay.demo.process.in.InAlipayMenuOpenMsgExecutor" />
+		
+		
+		<!-- 支付宝->商户二维码扫码服务 -->
+		<bean id="inAlipayQRScanExecutor" class="com.alipay.demo.process.in.InAlipayQRScanExecutor" />
  
 </beans>

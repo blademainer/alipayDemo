@@ -38,6 +38,12 @@ public class MsgConstants {
     public static final String UNFOLLOW_EVENT_TYPE         = "unfollow";
 
     /**
+     * 二维码扫码
+     * 
+     */
+    public static final String QR_SCAN_EVENT_TYPE          = "enter";
+
+    /**
      * 绑定外部户参数
      */
     public static final String AUTHENTICATION_ACTIONPARAMS = "authentication";
@@ -66,7 +72,8 @@ public class MsgConstants {
         public static final String MENU_MSG_RESP      = "MSG_RESP";
 
         /**
-         * 消息应答式菜单key:直接打开消息
+         * 消息应答式菜单key:用户信息消息
+         * 
          */
         public static final String MENU_MSG_OPEN_RESP = "MSG_OPEN_RESP";
 
